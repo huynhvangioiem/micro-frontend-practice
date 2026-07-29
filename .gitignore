@@ -12,6 +12,7 @@ build/
 .rsbuild/
 .rspack-cache/
 .module-federation/
+.mf/
 
 # logs
 *.log
