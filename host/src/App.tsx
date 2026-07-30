@@ -1,16 +1,18 @@
-import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
+import UserPage from './pages/UserPage';
 import './App.css';
 
-const CartWidget = lazy(() => import('remote_cart/CartWidget'));
-
-const App = () => {
-  return (
-    <div className="content">
-      <Suspense fallback={<div>Loading cart…</div>}>
-        <CartWidget />
-      </Suspense>
-    </div>
-  );
-};
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="cart" element={<CartPage />} />
+      <Route path="user" element={<UserPage />} />
+    </Route>
+  </Routes>
+);
 
 export default App;

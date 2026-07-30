@@ -4,6 +4,7 @@ export default createModuleFederationConfig({
   name: 'host',
   remotes: {
     remote_cart: 'remote_cart@http://localhost:3010/mf-manifest.json',
+    remote_user: 'remote_user@http://localhost:3002/mf-manifest.json',
   },
   shareStrategy: 'loaded-first',
   shared: {
