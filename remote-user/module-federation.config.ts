@@ -4,7 +4,8 @@ export default createModuleFederationConfig({
   name: 'remote_user',
   filename: 'remoteEntry.js',
   exposes: {
-    '.': './src/components/ProviderComponent.tsx',
+    './UserBadge': './src/components/UserBadge.tsx',
+    './useCurrentUser': './src/hooks/useCurrentUser.ts',
   },
   shared: {
     react: { singleton: true },
