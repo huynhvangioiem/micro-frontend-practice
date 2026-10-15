@@ -32,13 +32,13 @@ The host draws a dashed, colour-coded outline and a label (`remote_cart :3010 ·
 
 ## Routes
 
-| Route            | Owner  | What it demonstrates                                                              |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| `/`              | host   | A host component (`UserGreeting`) calling `useCurrentUser` from `remote_user`      |
-| `/products/*`    | catalog | The remote renders its own `<Routes>` (`/products`, `/products/:id`)              |
-| `/cart`          | cart   | `remote_cart/CartPage`, with the host deciding where "Checkout" goes              |
-| `/login`         | user   | `remote_user/LoginForm`; returns the user to the page they were headed to         |
-| `/checkout`      | host   | Guarded by `RequireAuth`; combines cart state (cart remote) and user (user remote) |
+| Route         | Owner   | What it demonstrates                                                               |
+| ------------- | ------- | ---------------------------------------------------------------------------------- |
+| `/`           | host    | A host component (`UserGreeting`) calling `useCurrentUser` from `remote_user`      |
+| `/products/*` | catalog | The remote renders its own `<Routes>` (`/products`, `/products/:id`)               |
+| `/cart`       | cart    | `remote_cart/CartPage`, with the host deciding where "Checkout" goes               |
+| `/login`      | user    | `remote_user/LoginForm`; returns the user to the page they were headed to          |
+| `/checkout`   | host    | Guarded by `RequireAuth`; combines cart state (cart remote) and user (user remote) |
 
 User flow: browse → add to cart → cart → checkout → (redirected to login) → checkout → order placed.
 
@@ -76,6 +76,10 @@ The header's cart badge (host), the "Add to cart" button (catalog) and the cart 
 
 - **The state lives on `globalThis`, not in the module.** The host and each remote that imports `remote_cart/cartStore` run their own Module Federation runtime, so each can end up with its own copy of the module. A plain module-level variable would be duplicated and the badge would never see what the catalog added. The store keeps its data and subscribers on `globalThis.__TLA_CART__` (and the session store on `globalThis.__TLA_AUTH__`) so every copy talks to the same state.
 - Both stores persist to `localStorage` (`tla-shop:cart`, `tla-shop:session`), so a page reload keeps the cart and the login.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Styling
 
