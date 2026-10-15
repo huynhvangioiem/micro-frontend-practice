@@ -32,13 +32,13 @@ The host draws a dashed, colour-coded outline and a label (`remote_cart :3010 ·
 
 ## Routes
 
-| Route            | Owner  | What it demonstrates                                                              |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| `/`              | host   | A host component (`UserGreeting`) calling `useCurrentUser` from `remote_user`      |
-| `/products/*`    | catalog | The remote renders its own `<Routes>` (`/products`, `/products/:id`)              |
-| `/cart`          | cart   | `remote_cart/CartPage`, with the host deciding where "Checkout" goes              |
-| `/login`         | user   | `remote_user/LoginForm`; returns the user to the page they were headed to         |
-| `/checkout`      | host   | Guarded by `RequireAuth`; combines cart state (cart remote) and user (user remote) |
+| Route         | Owner   | What it demonstrates                                                               |
+| ------------- | ------- | ---------------------------------------------------------------------------------- |
+| `/`           | host    | A host component (`UserGreeting`) calling `useCurrentUser` from `remote_user`      |
+| `/products/*` | catalog | The remote renders its own `<Routes>` (`/products`, `/products/:id`)               |
+| `/cart`       | cart    | `remote_cart/CartPage`, with the host deciding where "Checkout" goes               |
+| `/login`      | user    | `remote_user/LoginForm`; returns the user to the page they were headed to          |
+| `/checkout`   | host    | Guarded by `RequireAuth`; combines cart state (cart remote) and user (user remote) |
 
 User flow: browse → add to cart → cart → checkout → (redirected to login) → checkout → order placed.
 
