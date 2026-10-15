@@ -77,6 +77,10 @@ The header's cart badge (host), the "Add to cart" button (catalog) and the cart 
 - **The state lives on `globalThis`, not in the module.** The host and each remote that imports `remote_cart/cartStore` run their own Module Federation runtime, so each can end up with its own copy of the module. A plain module-level variable would be duplicated and the badge would never see what the catalog added. The store keeps its data and subscribers on `globalThis.__TLA_CART__` (and the session store on `globalThis.__TLA_AUTH__`) so every copy talks to the same state.
 - Both stores persist to `localStorage` (`tla-shop:cart`, `tla-shop:session`), so a page reload keeps the cart and the login.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## Styling
 
 Colours, fonts and the price highlight live in `src/tokens.css`. Each app ships its own copy of that file so a remote looks right when run alone; inside the host the values simply agree. Change a token in all four copies to restyle the shop.
