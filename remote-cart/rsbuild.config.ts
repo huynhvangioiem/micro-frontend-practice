@@ -8,4 +8,8 @@ export default defineConfig({
   server: {
     port: 3010,
   },
+  // Resolve chunk URLs from wherever remoteEntry.js was loaded, so a host on another
+  // origin fetches them from this remote instead of from itself.
+  dev: { assetPrefix: 'auto' },
+  output: { assetPrefix: 'auto' },
 });
