@@ -6,8 +6,12 @@ const UserGreeting = lazy(() => import('../components/UserGreeting'));
 
 const HomePage = () => (
   <div>
-    <h1>Home Page</h1>
-    <p>Welcome to the homepage</p>
+    <h1>Hooks across the federation boundary</h1>
+    <p>
+      The greeting below is a host component, but the user state comes from the{' '}
+      <code>useCurrentUser</code> hook exposed by <code>remote_user</code>. It only
+      works because both apps share a single copy of React.
+    </p>
 
     {/* Host UI that is powered by a hook from a remote app — proof that hooks can cross boundaries. */}
     <RemoteRoute name="user greeting">

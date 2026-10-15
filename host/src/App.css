@@ -13,3 +13,26 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-nav {
+  min-width: 180px;
+  background: #f2f2f2;
+  padding: 16px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+}
+
+.app-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px;
+}

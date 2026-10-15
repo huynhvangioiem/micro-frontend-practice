@@ -10,7 +10,7 @@ A minimal Module Federation playground: one host app that consumes components **
 | `remote-cart` | 3010  | remote | `./CartWidget`                              |
 | `remote-user` | 3002  | remote | `./UserBadge`, `./useCurrentUser`           |
 
-Each app is a standalone project with its own `package.json`, so it can be run and built on its own.
+Each app is a standalone project with its own `package.json`, so it can be run and built on its own. This README covers all three.
 
 ## Getting started
 
