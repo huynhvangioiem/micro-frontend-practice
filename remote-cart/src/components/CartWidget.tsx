@@ -26,7 +26,7 @@ const CartWidget = () => {
         </button>
       </div>
       <p className="cart-hint">
-        State lives in the remote — if React is not a singleton, this hook blows up.
+        The count is useState inside the remote. It needs the host and remote to share one React copy, or the hook throws "Invalid hook call".
       </p>
     </div>
   );
