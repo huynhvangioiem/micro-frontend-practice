@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useCurrentUser from 'remote_user/useCurrentUser';
 
 /**
@@ -12,19 +13,19 @@ import useCurrentUser from 'remote_user/useCurrentUser';
  * this component itself—that's why it lives in its own file.
  */
 const UserGreeting = () => {
-  const { user, loading, refresh } = useCurrentUser();
-
-  if (loading) {
-    return <p>Loading user…</p>;
-  }
+  const { user } = useCurrentUser();
 
   return (
-    <p>
-      Hello, <strong>{user?.name ?? 'guest'}</strong> — this hook runs from{' '}
-      <code>remote_user</code>.{' '}
-      <button type="button" onClick={refresh}>
-        Refresh
-      </button>
+    <p className="hero__greeting">
+      {user ? (
+        <>
+          Welcome back, <strong>{user.name}</strong>.
+        </>
+      ) : (
+        <>
+          You are browsing as a guest. <Link to="/login">Sign in</Link> to check out.
+        </>
+      )}
     </p>
   );
 };

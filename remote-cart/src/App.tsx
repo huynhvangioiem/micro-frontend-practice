@@ -1,12 +1,11 @@
+import './tokens.css';
 import './App.css';
-import CartWidget from './components/CartWidget';
+import CartPage from './components/CartPage';
 
-const App = () => {
-  return (
-    <div className="content">
-      <CartWidget />
-    </div>
-  );
-};
+const App = () => (
+  <div className="content">
+    <CartPage />
+  </div>
+);
 
 export default App;

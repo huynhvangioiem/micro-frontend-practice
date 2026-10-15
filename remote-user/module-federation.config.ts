@@ -5,6 +5,7 @@ export default createModuleFederationConfig({
   filename: 'remoteEntry.js',
   exposes: {
     './UserBadge': './src/components/UserBadge.tsx',
+    './LoginForm': './src/components/LoginForm.tsx',
     './useCurrentUser': './src/hooks/useCurrentUser.ts',
   },
   shared: {

@@ -4,7 +4,9 @@ export default createModuleFederationConfig({
   name: 'remote_cart',
   filename: 'remoteEntry.js',
   exposes: {
-    './CartWidget': './src/components/CartWidget.tsx',
+    './CartPage': './src/components/CartPage.tsx',
+    './CartBadge': './src/components/CartBadge.tsx',
+    './cartStore': './src/store/cartStore.ts',
   },
   shared: {
     react: { singleton: true },
