@@ -10,7 +10,7 @@ A minimal Module Federation playground: one host app that consumes components **
 | `remote-cart` | 3010  | remote | `./CartWidget`                              |
 | `remote-user` | 3002  | remote | `./UserBadge`, `./useCurrentUser`           |
 
-Each app is a standalone project with its own `package.json`, so it can be run and built on its own.
+Each app is a standalone project with its own `package.json`, so it can be run and built on its own. This README covers all three.
 
 ## Getting started
 
@@ -69,4 +69,5 @@ remotes: {
 
 - **React must be a singleton.** Both apps declare `react`/`react-dom` as `singleton: true`, and the host uses `shareStrategy: 'loaded-first'`. Sharing a *hook* across the boundary only works with one React copy — two copies means the remote's `useState` writes to the wrong dispatcher and you get `Invalid hook call`.
 - **You can't `lazy()` a hook.** That's why [`UserGreeting.tsx`](host/src/components/UserGreeting.tsx) exists as its own file: the lazy boundary sits on the component that calls the hook, not on the hook itself.
+- **Remotes need `assetPrefix: 'auto'`.** With Rsbuild's default `/`, the manifest's `publicPath` is `/`, so the host requests `remoteEntry.js` and the remote's chunks from its *own* origin and gets its HTML back (`Unexpected token '<'`). `'auto'` resolves them from wherever the remote was loaded.
 - **Remote types are hand-written.** [`host/src/env.d.ts`](host/src/env.d.ts) declares each remote module by hand. TypeScript does *not* verify these against the remotes' real code — a changed signature still compiles and fails at runtime. Enable `dts: true` on the remotes to generate real `.d.ts` files when that guarantee matters.

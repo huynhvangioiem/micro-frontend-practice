@@ -1,17 +1,9 @@
 import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => (
-  <div className="app-layout" style={{ display: 'flex', minHeight: '100vh' }}>
-    <nav
-      style={{
-        minWidth: 180,
-        background: '#f2f2f2',
-        padding: 16,
-        boxSizing: 'border-box',
-        borderRight: '1px solid #ddd',
-      }}
-    >
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+  <div className="app-layout">
+    <nav className="app-nav">
+      <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -23,7 +15,7 @@ const Layout = () => (
         </li>
       </ul>
     </nav>
-    <main style={{ flex: 1, padding: 24 }}>
+    <main className="app-main">
       <Outlet />
     </main>
   </div>
