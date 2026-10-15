@@ -3,33 +3,30 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  max-width: 440px;
   padding: 16px 20px;
-  border: 1px solid #e2e4ea;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-  font-family: system-ui, -apple-system, sans-serif;
-  max-width: 420px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-family: var(--font-body);
 }
 
-.user-badge--loading,
 .user-badge--empty {
-  color: #6b7280;
-  font-style: italic;
+  color: var(--muted);
 }
 
 .user-badge__avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   width: 48px;
   height: 48px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3a65f2, #8a2be2);
-  color: #fff;
+  background: var(--ink);
+  color: var(--lemon);
+  font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .user-badge__info {
@@ -40,35 +37,37 @@
 }
 
 .user-badge__name {
-  font-weight: 600;
-  color: #111827;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .user-badge__role {
   font-size: 0.85rem;
-  color: #3a65f2;
+  color: var(--accent);
 }
 
 .user-badge__email {
-  font-size: 0.8rem;
-  color: #6b7280;
   overflow: hidden;
+  font-size: 0.8rem;
+  color: var(--muted);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.user-badge__refresh {
+.user-badge__action {
   margin-left: auto;
-  padding: 6px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background: #f9fafb;
-  color: #374151;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
   font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: border-color 0.15s;
 }
 
-.user-badge__refresh:hover {
-  background: #f3f4f6;
+.user-badge__action:hover {
+  border-color: var(--ink);
 }

@@ -9,15 +9,10 @@ import './UserBadge.css';
  * the host can either render this badge or call the hook and build its own UI.
  */
 const UserBadge: React.FC = () => {
-  const { user, loading, refresh } = useCurrentUser();
+  const { user, logout } = useCurrentUser();
 
-  if (loading) {
-    return <div className="user-badge user-badge--loading">Loading user…</div>;
-  }
-
-  // `user` is only null while loading, but TS needs the guard.
   if (!user) {
-    return <div className="user-badge user-badge--empty">No user found.</div>;
+    return <div className="user-badge user-badge--empty">Not signed in.</div>;
   }
 
   // First letter of the name, used as a cheap avatar placeholder.
@@ -33,9 +28,8 @@ const UserBadge: React.FC = () => {
         <span className="user-badge__email">{user.email}</span>
       </div>
 
-      {/* Proves the hook's state lives in the remote and re-renders correctly. */}
-      <button type="button" className="user-badge__refresh" onClick={refresh}>
-        Refresh
+      <button type="button" className="user-badge__action" onClick={logout}>
+        Sign out
       </button>
     </div>
   );
