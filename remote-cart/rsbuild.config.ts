@@ -5,6 +5,7 @@ import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
+  html: { title: 'TLA Shop · Cart (remote_cart)' },
   server: {
     port: 3010,
   },

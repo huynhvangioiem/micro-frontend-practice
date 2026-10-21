@@ -1,0 +1,28 @@
+1
+00:00:00,000 --> 00:00:05,500
+TLA Shop: one host app and three remote apps, loaded at runtime
+
+2
+00:00:05,500 --> 00:00:09,500
+The product list comes from remote_catalog (:3020)
+
+3
+00:00:09,500 --> 00:00:13,500
+"Add to cart" writes to the shared store exposed by remote_cart
+
+4
+00:00:13,500 --> 00:00:19,500
+The cart page is remote_cart; the header badge reads the same store
+
+5
+00:00:19,500 --> 00:00:24,000
+Checkout is guarded by the host, so it redirects to remote_user's login form
+
+6
+00:00:24,000 --> 00:00:29,000
+After sign-in the host combines the cart (remote_cart) and the user (remote_user)
+
+7
+00:00:29,000 --> 00:00:34,400
+Place order clears the cart, and the badge drops back to 0
+

@@ -397,8 +397,12 @@ a {
   border-radius: 8px;
 }
 
-.show-origins .origin::before {
-  content: attr(data-origin);
+.origin__label {
+  display: none;
+}
+
+.show-origins .origin__label {
+  display: block;
   position: absolute;
   z-index: 20;
   top: -26px;
@@ -421,7 +425,7 @@ a {
 
 /* Header widgets sit near the top edge, so their label goes underneath, in a band the
    header reserves while boundaries are shown. */
-.show-origins .origin--inline::before {
+.show-origins .origin--inline > .origin__label {
   top: calc(100% + 10px);
 }
 
@@ -432,7 +436,7 @@ a {
 }
 
 /* The account widget is the last thing on the row, so its label grows leftwards. */
-.show-origins .app-user .origin::before {
+.show-origins .app-user .origin > .origin__label {
   right: -6px;
   left: auto;
 }
@@ -474,6 +478,14 @@ a {
   color: var(--ink-2);
 }
 
+a.origin-legend__item {
+  text-decoration: none;
+}
+
+a.origin-legend__item:hover {
+  text-decoration: underline;
+}
+
 .origin-legend__item::before {
   content: '';
   width: 10px;
@@ -497,7 +509,7 @@ a {
     margin-top: 0;
   }
 
-  .show-origins .origin::before {
+  .show-origins .origin__label {
     display: none;
   }
 

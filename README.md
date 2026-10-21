@@ -13,6 +13,10 @@
 
 `remote-catalog` also consumes `remote_cart/cartStore` to add products to the cart. Product data comes from [DummyJSON](https://dummyjson.com), so the catalog needs internet access.
 
+## Demo
+
+[Watch the demo video](docs/demo/tla-shop-demo-subtitled.mp4) — browse → add to cart → checkout → sign in → order placed, with the app boundaries on. Subtitles are also available as [demo.srt](docs/demo/demo.srt).
+
 ## Getting started
 
 ```bash
@@ -28,7 +32,7 @@ Demo account for checkout: `jane.doe@example.com` / `password123`.
 
 ## Seeing which app owns what
 
-The host draws a dashed, colour-coded outline and a label (`remote_cart :3010 · CartBadge`) around every region that comes from a remote, with a legend under the header. Anything not outlined belongs to the host. Switch it off with **Show app boundaries** in the header (the choice is remembered). The wrapper is [`Origin`](host/src/components/Origin.tsx); [`RemoteRoute`](host/src/components/RemoteRoute.tsx) takes `app` and `note` props to apply it.
+The host draws a dashed, colour-coded outline and a label (`remote_cart :3010 · CartBadge`) around every region that comes from a remote, with a legend under the header. Anything not outlined belongs to the host. Each remote in the legend links to that app running on its own (new tab). Switch it off with **Show app boundaries** in the header (the choice is remembered). The wrapper is [`Origin`](host/src/components/Origin.tsx); [`RemoteRoute`](host/src/components/RemoteRoute.tsx) takes `app` and `note` props to apply it.
 
 ## Routes
 

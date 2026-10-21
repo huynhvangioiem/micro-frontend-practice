@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { APPS, type AppName } from './Origin';
+import { APPS, appUrl, type AppName } from './Origin';
 import OriginToggle from './OriginToggle';
 import RemoteRoute from './RemoteRoute';
 
@@ -32,11 +32,24 @@ const Layout = () => (
     </header>
     <div className="origin-legend">
       <span>App boundaries</span>
-      {(Object.keys(APPS) as AppName[]).map((app) => (
-        <span key={app} className={`origin-legend__item origin--${app}`}>
-          {app === 'host' ? 'host (everything not outlined)' : `${app} :${APPS[app].port}`}
-        </span>
-      ))}
+      {(Object.keys(APPS) as AppName[]).map((app) =>
+        app === 'host' ? (
+          <span key={app} className={`origin-legend__item origin--${app}`}>
+            host (everything not outlined)
+          </span>
+        ) : (
+          <a
+            key={app}
+            className={`origin-legend__item origin--${app}`}
+            href={appUrl(app)}
+            target="_blank"
+            rel="noreferrer"
+            title={`Open ${app} on its own (new tab)`}
+          >
+            {app} :{APPS[app].port} ↗
+          </a>
+        ),
+      )}
     </div>
     <main className="app-main">
       <Outlet />

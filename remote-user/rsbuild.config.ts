@@ -5,6 +5,7 @@ import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
+  html: { title: 'TLA Shop · User (remote_user)' },
   server: {
     port: 3002,
   },
